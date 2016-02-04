@@ -13,11 +13,15 @@ The following **required** functionality is completed:
   * [x] Graphic, Caption, Username
   * [x] Relative timestamp, like count, user profile image
 
+The following **optional** features are implemented:
+
+* [x] Display each user profile image using a RoundedImageViewDisplay each user profile image using a [RoundedImageView](https://github.com/vinc3m1/RoundedImageView)
+
 ## Video Walkthrough 
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://tachyonlabs.com/miscimages/popular_photos.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='http://tachyonlabs.com/miscimages/popular_photos2.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
@@ -25,6 +29,7 @@ GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 - [Android Async HTTP](https://github.com/loopj/android-async-http) - Simple asynchronous HTTP requests with JSON parsing
 - [Picasso](http://square.github.io/picasso/) - Image loading and caching library for Android
+- [RoundedImageView](https://github.com/vinc3m1/RoundedImageView) - Fast ImageView (and Drawable) that supports rounded corners (and ovals or circles)
 
 ## License
 

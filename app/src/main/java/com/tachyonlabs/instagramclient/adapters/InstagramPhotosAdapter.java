@@ -60,13 +60,13 @@ public class InstagramPhotosAdapter extends ArrayAdapter<InstagramPhoto> {
         // insert the model data into each of the view items
         tvUsername.setText(photo.username);
         tvDate.setText(relativeDate(photo.createdTime));
-        tvLikes.setText("\u2665" + photo.likesCount);
+        tvLikes.setText("\u2665 " + photo.likesCount + " likes");
         tvCaption.setText(photo.caption);
         // clear the imageviews, in case the view is recycled
         ivPhoto.setImageResource(0);
         ivUserProfileImage.setImageResource(0);
         // insert the images using Picasso
-        Picasso.with(getContext()).load(photo.userProfileImageUrl).into(ivUserProfileImage);
+        Picasso.with(getContext()).load(photo.userProfileImageUrl).fit().into(ivUserProfileImage);
         Picasso.with(getContext()).load(photo.imageUrl).into(ivPhoto);
         // return the created item as a view
         return convertView;
