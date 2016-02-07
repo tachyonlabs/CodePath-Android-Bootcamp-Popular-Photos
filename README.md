@@ -16,12 +16,14 @@ The following **required** functionality is completed:
 The following **optional** features are implemented:
 
 * [x] Display each user profile image using a RoundedImageViewDisplay each user profile image using a [RoundedImageView](https://github.com/vinc3m1/RoundedImageView)
+* [x] Display a nice default placeholder graphic for each image during loading
+* [x] Improved the user interface through styling and coloring
 
 ## Video Walkthrough 
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://tachyonlabs.com/miscimages/popular_photos2.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='http://tachyonlabs.com/miscimages/popular_photos3.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 

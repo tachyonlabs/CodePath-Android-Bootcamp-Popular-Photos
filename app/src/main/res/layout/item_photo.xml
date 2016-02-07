@@ -5,13 +5,15 @@
     <com.makeramen.roundedimageview.RoundedImageView
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/ivUserProfileImage"
-        android:layout_width="29dp"
-        android:layout_height="29dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:scaleType="fitCenter"
         android:layout_margin="8dp"
         app:riv_corner_radius="30dip"
+        app:riv_border_width="1dip"
+        app:riv_border_color="#D2D2D2"
         app:riv_mutate_background="true"
         app:riv_tile_mode="repeat"
         app:riv_oval="true" />
@@ -45,6 +47,7 @@
         android:layout_below="@+id/ivUserProfileImage"
         android:adjustViewBounds="true"
         android:scaleType="fitXY"
+        android:background="#DDDDDD"
         android:minHeight="50dp" />
 
     <TextView

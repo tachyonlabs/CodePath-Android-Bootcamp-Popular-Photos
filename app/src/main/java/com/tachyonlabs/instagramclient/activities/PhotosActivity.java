@@ -28,6 +28,10 @@ public class PhotosActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_photos);
+        getSupportActionBar().setDisplayUseLogoEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setLogo(R.drawable.logo);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
         photos = new ArrayList<>();
         // create the adapter linking it to the source
         aPhotos = new InstagramPhotosAdapter(this, photos);
