@@ -10,6 +10,7 @@ import com.loopj.android.http.JsonHttpResponseHandler;
 import com.tachyonlabs.instagramclient.R;
 import com.tachyonlabs.instagramclient.adapters.InstagramPhotosAdapter;
 import com.tachyonlabs.instagramclient.models.InstagramPhoto;
+import com.tachyonlabs.instagramclient.models.InstagramPhotoComment;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -28,10 +29,13 @@ public class PhotosActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_photos);
+        // Maybe later I'll set the ActionBar font directly, but for now I'm
+        // just doing it as a logo
         getSupportActionBar().setDisplayUseLogoEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setLogo(R.drawable.logo);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
+
         photos = new ArrayList<>();
         // create the adapter linking it to the source
         aPhotos = new InstagramPhotosAdapter(this, photos);
@@ -63,6 +67,7 @@ public class PhotosActivity extends AppCompatActivity {
                         // get the JSON object at that position
                         JSONObject photoJSON = photosJSON.getJSONObject(i);
                         // decode the attributes of the JSON into a data model
+                        // see https://www.instagram.com/developer/deprecated/endpoints/media/#get_media_popular
                         InstagramPhoto photo = new InstagramPhoto();
                         photo.username = photoJSON.getJSONObject("user").getString("username");
                         photo.userProfileImageUrl = photoJSON.getJSONObject("user").getString("profile_picture");
@@ -72,11 +77,16 @@ public class PhotosActivity extends AppCompatActivity {
                         photo.likesCount = photoJSON.getJSONObject("likes").getInt("count");
                         photo.createdTime = photoJSON.getInt("created_time");
                         JSONArray commentsJSON = photoJSON.getJSONObject("comments").getJSONArray("data");
-                        for (int j = 0; j < commentsJSON.length(); j++) {
+                        InstagramPhotoComment[] photoComments = new InstagramPhotoComment[commentsJSON.length()];
+                        Log.d("NUM COMMENTS", commentsJSON.length() + "");
+                        for (int j = 0; j < Math.min(commentsJSON.length(), 2); j++) {
                             JSONObject commentJSON = commentsJSON.getJSONObject(j);
-                            Log.d("USERNAME", commentJSON.getJSONObject("from").getString("username"));
-                            Log.d("COMMENT", commentJSON.getString("text"));
+                            InstagramPhotoComment photoComment = new InstagramPhotoComment();
+                            photoComment.username = commentJSON.getJSONObject("from").getString("username");
+                            photoComment.text = commentJSON.getString("text");
+                            photoComments[j] = photoComment;
                         }
+                        photo.comments = photoComments;
                         // add decoded objects to the photos
                         photos.add(photo);
                     }

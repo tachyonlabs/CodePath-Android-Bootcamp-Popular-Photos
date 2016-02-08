@@ -19,11 +19,15 @@ The following **optional** features are implemented:
 * [x] Display a nice default placeholder graphic for each image during loading
 * [x] Improved the user interface through styling and coloring
 
+The following **bonus** features are implemented:
+
+* [x] Show last 2 comments for each photo
+
 ## Video Walkthrough 
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://tachyonlabs.com/miscimages/popular_photos3.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='http://tachyonlabs.com/miscimages/popular_photos4.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 

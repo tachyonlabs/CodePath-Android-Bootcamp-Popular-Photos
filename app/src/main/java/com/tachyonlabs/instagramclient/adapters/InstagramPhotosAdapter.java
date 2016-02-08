@@ -3,6 +3,7 @@ package com.tachyonlabs.instagramclient.adapters;
 import android.content.Context;
 import android.text.Html;
 import android.text.Spanned;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -43,6 +44,11 @@ public class InstagramPhotosAdapter extends ArrayAdapter<InstagramPhoto> {
         return dateString;
     }
 
+    private android.text.Spanned formatUsernameAndComment(String username, String comment) {
+        Spanned formattedUsernameAndComment = Html.fromHtml("<font color='#125688'>" + username + "</font> " + comment);
+        return formattedUsernameAndComment;
+    }
+
     // use the template to display each photo
     public View getView(int position, View convertView, ViewGroup parent) {
         // get the data for this position
@@ -59,12 +65,16 @@ public class InstagramPhotosAdapter extends ArrayAdapter<InstagramPhoto> {
         ImageView ivPhoto = (ImageView) convertView.findViewById(R.id.ivPhoto);
         TextView tvLikes = (TextView) convertView.findViewById(R.id.tvLikes);
         TextView tvCaption = (TextView) convertView.findViewById(R.id.tvCaption);
+        TextView tvComments = (TextView) convertView.findViewById(R.id.tvComments);
+
         // insert the model data into each of the view items
         tvUsername.setText(photo.username);
         tvDate.setText(relativeDate(photo.createdTime));
+        // \u2665 is a unicode heart
         tvLikes.setText("\u2665 " + photo.likesCount + " likes");
-        Spanned formattedCaption = Html.fromHtml("<font color='#125688'>" + photo.username + "</font> " + photo.caption);
-        tvCaption.setText(formattedCaption);
+        tvCaption.setText(formatUsernameAndComment(photo.username, photo.caption));
+        tvComments.setText(TextUtils.concat(formatUsernameAndComment(photo.comments[0].username, photo.comments[0].text), Html.fromHtml("<br>"), formatUsernameAndComment(photo.comments[1].username, photo.comments[1].text)));
+        //tvComment.setText(formatUsernameAndComment(photo.comments[0].username, photo.comments[0].text) + "<br>" + formatUsernameAndComment(photo.comments[1].username, photo.comments[1].text));
         // clear the imageviews, in case the view is recycled
         ivPhoto.setImageResource(0);
         ivUserProfileImage.setImageResource(0);

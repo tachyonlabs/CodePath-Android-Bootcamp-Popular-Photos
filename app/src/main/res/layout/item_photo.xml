@@ -48,7 +48,7 @@
         android:layout_below="@+id/ivUserProfileImage"
         android:adjustViewBounds="true"
         android:scaleType="fitXY"
-        android:background="#DDDDDD"
+        android:background="#F8F8F8"
         android:minHeight="50dp" />
 
     <TextView
@@ -58,7 +58,10 @@
         android:id="@+id/tvLikes"
         android:layout_below="@+id/ivPhoto"
         android:layout_alignParentLeft="true"
-        android:layout_margin="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="7dp"
         android:textSize="14sp"
         android:textColor="@color/colorPrimary" />
 
@@ -68,6 +71,21 @@
         android:text="Caption"
         android:id="@+id/tvCaption"
         android:layout_below="@+id/tvLikes"
+        android:layout_alignParentLeft="true"
+        android:textSize="14sp"
+        android:lineSpacingExtra="3dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:textColor="@color/darkerGrayText"
+        android:maxLines="3"
+        android:ellipsize="end" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Caption"
+        android:id="@+id/tvComments"
+        android:layout_below="@+id/tvCaption"
         android:layout_alignParentLeft="true"
         android:textSize="14sp"
         android:lineSpacingExtra="3dp"
