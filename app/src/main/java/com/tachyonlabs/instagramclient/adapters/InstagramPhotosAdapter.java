@@ -1,6 +1,8 @@
 package com.tachyonlabs.instagramclient.adapters;
 
 import android.content.Context;
+import android.text.Html;
+import android.text.Spanned;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,7 +23,7 @@ public class InstagramPhotosAdapter extends ArrayAdapter<InstagramPhoto> {
     }
 
     private String relativeDate(int createdDate) {
-        // get a user-friendly string of how long ago the photo was uploaded
+        // get an Instagram-style string of how long ago the photo was uploaded
         String dateString;
         long msDate = createdDate;
         msDate *= 1000;
@@ -61,7 +63,8 @@ public class InstagramPhotosAdapter extends ArrayAdapter<InstagramPhoto> {
         tvUsername.setText(photo.username);
         tvDate.setText(relativeDate(photo.createdTime));
         tvLikes.setText("\u2665 " + photo.likesCount + " likes");
-        tvCaption.setText(photo.caption);
+        Spanned formattedCaption = Html.fromHtml("<font color='#125688'>" + photo.username + "</font> " + photo.caption);
+        tvCaption.setText(formattedCaption);
         // clear the imageviews, in case the view is recycled
         ivPhoto.setImageResource(0);
         ivUserProfileImage.setImageResource(0);

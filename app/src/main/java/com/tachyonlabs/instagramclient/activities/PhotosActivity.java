@@ -58,7 +58,6 @@ public class PhotosActivity extends AppCompatActivity {
                 JSONArray photosJSON = null;
                 try {
                     photosJSON = response.getJSONArray("data"); // array of posts
-                    Log.d("RESPONSE", photosJSON.toString());
                     // iterate array of posts
                     for (int i = 0; i < photosJSON.length(); i++) {
                         // get the JSON object at that position
@@ -72,6 +71,12 @@ public class PhotosActivity extends AppCompatActivity {
                         photo.imageHeight = photoJSON.getJSONObject("images").getJSONObject("standard_resolution").getInt("height");
                         photo.likesCount = photoJSON.getJSONObject("likes").getInt("count");
                         photo.createdTime = photoJSON.getInt("created_time");
+                        JSONArray commentsJSON = photoJSON.getJSONObject("comments").getJSONArray("data");
+                        for (int j = 0; j < commentsJSON.length(); j++) {
+                            JSONObject commentJSON = commentsJSON.getJSONObject(j);
+                            Log.d("USERNAME", commentJSON.getJSONObject("from").getString("username"));
+                            Log.d("COMMENT", commentJSON.getString("text"));
+                        }
                         // add decoded objects to the photos
                         photos.add(photo);
                     }

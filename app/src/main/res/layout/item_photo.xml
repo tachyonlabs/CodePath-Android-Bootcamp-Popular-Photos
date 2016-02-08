@@ -5,12 +5,12 @@
     <com.makeramen.roundedimageview.RoundedImageView
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/ivUserProfileImage"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:scaleType="fitCenter"
-        android:layout_margin="8dp"
+        android:layout_margin="10dp"
         app:riv_corner_radius="30dip"
         app:riv_border_width="1dip"
         app:riv_border_color="#D2D2D2"
@@ -25,8 +25,8 @@
         android:id="@+id/tvUsername"
         android:layout_alignParentTop="true"
         android:layout_toRightOf="@+id/ivUserProfileImage"
-        android:layout_marginTop="14dp"
-        android:textSize="12sp"
+        android:layout_marginTop="16dp"
+        android:textSize="14sp"
         android:textColor="@color/colorPrimary" />
 
     <TextView
@@ -36,8 +36,9 @@
         android:id="@+id/tvDate"
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
-        android:textSize="12sp"
-        android:layout_margin="14dp" />
+        android:textSize="14sp"
+        android:textColor="@color/lightergrayText"
+        android:layout_margin="16dp" />
 
     <ImageView
         android:layout_width="match_parent"
@@ -57,8 +58,8 @@
         android:id="@+id/tvLikes"
         android:layout_below="@+id/ivPhoto"
         android:layout_alignParentLeft="true"
-        android:layout_margin="12dp"
-        android:textSize="12sp"
+        android:layout_margin="10dp"
+        android:textSize="14sp"
         android:textColor="@color/colorPrimary" />
 
     <TextView
@@ -68,10 +69,12 @@
         android:id="@+id/tvCaption"
         android:layout_below="@+id/tvLikes"
         android:layout_alignParentLeft="true"
-        android:textSize="12sp"
-        android:layout_marginLeft="12dp"
-        android:layout_marginRight="12dp"
-        android:layout_marginBottom="12dp"
+        android:textSize="14sp"
+        android:lineSpacingExtra="3dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+        android:textColor="@color/darkerGrayText"
         android:maxLines="3"
         android:ellipsize="end" />
 
