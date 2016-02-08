@@ -35,12 +35,15 @@ GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 OK, this one --
 * [x] Display each photo with the same style and proportions as the real Instagram
+
 -- confuses me. On one hand, I **think** so, because all the photos displayed look like perfectly fine Instagram photos, but on the other hand I can't make Instagram display the exact same photos for comparison. With photos that display with whitespace on the sides and/or top and bottom of the photo, this does seem to be part of the image the person uploaded rather than that I am displaying it incorrectly. Also, I guess that Instagram photos used to all be square, but this is no longer the case: [Thinking Outside the Square: Support for Landscape and Portrait Formats on Instagram](http://blog.instagram.com/post/127722429412/150827-portrait-and-landscape)
 
 Also, this -- 
 * [x] Show latest comments for each photo
+
 -- is listed as an "optional" feature, whereas this --
 * [x] Show last 2 comments for each photo
+
 -- is listed as a "bonus" feature, and I'm not really sure what the difference is.
 
 ## Open-source libraries used
