@@ -45,6 +45,7 @@ public class InstagramPhotosAdapter extends ArrayAdapter<InstagramPhoto> {
     }
 
     private android.text.Spanned formatUsernameAndComment(String username, String comment) {
+        // formats captions and comments so that the username part will display in Instagram blue
         Spanned formattedUsernameAndComment = Html.fromHtml("<font color='#125688'>" + username + "</font> " + comment);
         return formattedUsernameAndComment;
     }
@@ -74,13 +75,12 @@ public class InstagramPhotosAdapter extends ArrayAdapter<InstagramPhoto> {
         tvLikes.setText("\u2665 " + photo.likesCount + " likes");
         tvCaption.setText(formatUsernameAndComment(photo.username, photo.caption));
         tvComments.setText(TextUtils.concat(formatUsernameAndComment(photo.comments[0].username, photo.comments[0].text), Html.fromHtml("<br>"), formatUsernameAndComment(photo.comments[1].username, photo.comments[1].text)));
-        //tvComment.setText(formatUsernameAndComment(photo.comments[0].username, photo.comments[0].text) + "<br>" + formatUsernameAndComment(photo.comments[1].username, photo.comments[1].text));
         // clear the imageviews, in case the view is recycled
         ivPhoto.setImageResource(0);
         ivUserProfileImage.setImageResource(0);
         // insert the images using Picasso
         Picasso.with(getContext()).load(photo.userProfileImageUrl).fit().into(ivUserProfileImage);
-        Picasso.with(getContext()).load(photo.imageUrl).placeholder(R.drawable.placeholder).into(ivPhoto);
+        Picasso.with(getContext()).load(photo.imageUrl).fit().placeholder(R.drawable.placeholder).into(ivPhoto);
         // return the created item as a view
         return convertView;
     }

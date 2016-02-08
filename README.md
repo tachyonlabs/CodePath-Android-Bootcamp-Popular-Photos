@@ -2,7 +2,7 @@
 
 Popular Photos is an android app that allows a user to check out popular photos from Instagram. The app utilizes Instagram API to display images and basic image information to the user.
 
-Time spent: I'll try to put a value in here at some point, because I know it's useful information for you to aggregate from the class as a whole, but right now I just don't want to feel like I'm in a race or something
+Time spent: I'll try to put a value in here for next week's assignment, because I know it's useful information for you to aggregate from the class as a whole, but right now I just don't want to feel like I'm in a race or something.
 
 ## User Stories
 
@@ -30,6 +30,18 @@ Here's a walkthrough of implemented user stories:
 <img src='http://tachyonlabs.com/miscimages/popular_photos4.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
+
+## Notes
+
+OK, this one --
+* [x] Display each photo with the same style and proportions as the real Instagram
+-- confuses me. On one hand, I **think** so, because all the photos displayed look like perfectly fine Instagram photos, but on the other hand I can't make Instagram display the exact same photos for comparison. With photos that display with whitespace on the sides and/or top and bottom of the photo, this does seem to be part of the image the person uploaded rather than that I am displaying it incorrectly. Also, I guess that Instagram photos used to all be square, but this is no longer the case: [Thinking Outside the Square: Support for Landscape and Portrait Formats on Instagram](http://blog.instagram.com/post/127722429412/150827-portrait-and-landscape)
+
+Also, this -- 
+* [x] Show latest comments for each photo
+-- is listed as an "optional" feature, whereas this --
+* [x] Show last 2 comments for each photo
+-- is listed as a "bonus" feature, and I'm not really sure what the difference is.
 
 ## Open-source libraries used
 

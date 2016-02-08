@@ -2,7 +2,6 @@ package com.tachyonlabs.instagramclient.activities;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.widget.ListView;
 
 import com.loopj.android.http.AsyncHttpClient;
@@ -29,8 +28,8 @@ public class PhotosActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_photos);
-        // Maybe later I'll set the ActionBar font directly, but for now I'm
-        // just doing it as a logo
+        // Maybe later I'll set the ActionBar font directly, but for now (after
+        // trying a few methods that didn't work) I'm just doing it as a logo
         getSupportActionBar().setDisplayUseLogoEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setLogo(R.drawable.logo);
@@ -76,9 +75,9 @@ public class PhotosActivity extends AppCompatActivity {
                         photo.imageHeight = photoJSON.getJSONObject("images").getJSONObject("standard_resolution").getInt("height");
                         photo.likesCount = photoJSON.getJSONObject("likes").getInt("count");
                         photo.createdTime = photoJSON.getInt("created_time");
+
                         JSONArray commentsJSON = photoJSON.getJSONObject("comments").getJSONArray("data");
                         InstagramPhotoComment[] photoComments = new InstagramPhotoComment[commentsJSON.length()];
-                        Log.d("NUM COMMENTS", commentsJSON.length() + "");
                         for (int j = 0; j < Math.min(commentsJSON.length(), 2); j++) {
                             JSONObject commentJSON = commentsJSON.getJSONObject(j);
                             InstagramPhotoComment photoComment = new InstagramPhotoComment();
@@ -87,12 +86,14 @@ public class PhotosActivity extends AppCompatActivity {
                             photoComments[j] = photoComment;
                         }
                         photo.comments = photoComments;
+
                         // add decoded objects to the photos
                         photos.add(photo);
                     }
                 } catch(JSONException e) {
                     e.printStackTrace();
                 }
+                // let the adapter know the data has changed and it should refresh the ListView
                 aPhotos.notifyDataSetChanged();
             }
 
